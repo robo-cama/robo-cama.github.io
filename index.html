@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> In-Hand Object Rotation via Rapid Motor Adaptation </title>
+	<link href="../res/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../res/css/fa.js"></script>
+
+	<style>
+      .header {
+        width: auto;
+        max-width: auto;
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+      }
+
+	  .container-custom {
+        max-width: 1000px; /* Adjust the width to your preference */
+        margin: 0 auto; /* Center the container */
+      }
+
+      a:link,a:visited
+      {
+        color: #0071bc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #208799;
+      }
+
+      hr {
+        border: 10;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 113, 188, 0.2), rgba(0, 0, 0, 0.1), rgba(0, 113, 188, 0.2));
+      }
+
+      .gap-30 {height:30px;}
+      .gap-20 {height:20px;}
+      .gap-10 {height:10px;}
+      .gap-5 {height:5px;}
+
+      .no-gutters {
+		  margin-right: 0;
+		  margin-left: 0;
+		}
+
+      .btn {
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
+	  }
+	</style>
+</head>
+
+<div class="header">
+	<div class="container">
+		<center><h1>Common Atomic Manual Actions</h1></center>
+		<div class="gap-10"></div>
+		<!--------------------- Author Names --------------------->
+		<center>
+			<a href="https://haozhi.io/" target="_blank" style="font-size:20px">Haozhi Qi</a>,
+			<a href="https://people.eecs.berkeley.edu/~malik/" target="_blank" style="font-size:20px">Jitendra Malik</a>
+		</center>
+
+		<div class="gap-20"></div>
+		<center>
+			<sup style="font-size:20px">UC Berkeley</sup>
+		</center>
+
+<!--		<div class="gap-10"></div>-->
+
+<!--		<center>-->
+<!--			<div class="btn-group" role="group">-->
+<!--				<a href="">-->
+<!--					<button type="button" class="btn btn-dark">-->
+<!--						<span class="icon">-->
+<!--							<i class="fas fa-file-pdf"></i> Paper-->
+<!--            			</span>-->
+<!--					</button>-->
+<!--				</a>-->
+
+<!--			</div>-->
+<!--		</center>-->
+	</div>
+</div>
+
+<div class="container-custom">
+	<!------------------------------------ Pouring ------------------------------------>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="pouring" style="text-align: center"> Pouring </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/pour1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/pour2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Stirring ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="stirring" style="text-align: center"> Stirring </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/stir1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/stir2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Cutting ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="cutting" style="text-align: center"> Cutting </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/cut1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/cut2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Inserting ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="inserting" style="text-align: center"> Inserting </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/insert1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/insert2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Screw / Unscrew ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="screwing" style="text-align: center"> Screwing / Unscrewing </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/screw1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/screw2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Writing ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="writing" style="text-align: center"> Writing </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/write1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/write2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Wiping / Painting ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="wiping" style="text-align: center"> Wiping / Painting </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/wiping1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/wiping2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Hammering ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="hammering" style="text-align: center"> Hammering </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/hammer1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/hammer2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Striking / Hitting ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="drilling" style="text-align: center"> Drilling </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/strike1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/strike1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Scissors ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="scissors" style="text-align: center"> Scissors </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/scissors1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/scissors2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Rolling Pin ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="rolling" style="text-align: center"> Rolling Pin </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/rolling1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/rolling2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Peeling ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="peeling" style="text-align: center"> Peeling </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/peeling1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/peeling2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Breaking Bread / Cookie ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="breaking" style="text-align: center"> Breaking Bread / Cookie </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/breaking1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/breaking2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Pull Handles ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="pullhandle" style="text-align: center"> Pull Handles (Drawers) </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/pull_handle_1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/pull_handle_2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Pull Knob ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="pullknob" style="text-align: center"> Pull Handles (Knob) </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/pull_knob_1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/pull_knob_2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Throw and Catch ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="throw" style="text-align: center"> Throw and Catch </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/throw1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/throw2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Press Button / Switch ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="press" style="text-align: center"> Press Button / Switch </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/button1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/button2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Stacking Blocks / Plates ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="stacking" style="text-align: center"> Stacking Blocks / Plates </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/stack1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/stack2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Pickup Utensil / Screwdriver ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="pickup" style="text-align: center"> Pickup Utensil / Screwdriver </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/pickup1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/pickup2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Put down Plates / Book ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="putdown" style="text-align: center"> Put down Plates / Book </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/putdown1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/putdown2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Handover ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="handover" style="text-align: center"> Handover </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/handover1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/handover2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Hitting with a Bat ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="hitting" style="text-align: center"> Hitting with a Bat </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/hit1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/hit2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<!------------------------------------ Pushing / Sliding ------------------------------------>
+	<div class="gap-20"></div>
+	<div class="row no-gutters">
+		<div class="col"><center>
+			<h3 id="push" style="text-align: center"> Pushing / Sliding </h3>
+		</center></div>
+	</div>
+	<div class="gap-10"></div>
+	<div class="row no-gutters">
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/push1.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+		<div class="col-md-6 align-column-center">
+			<center><video playsinline autoplay loop muted controls src="videos/push2.mp4" width="95%" preload="metadata"
+			       style="border-radius:10px;"></video></center>
+		</div>
+	</div>
+
+	<div class="gap-20"></div>
+	<b><span style="font-size:22px">Acknowledgements</span></b><br>
+
+	<div class="gap-10"></div>
+
+	We do not own the copyright of these videos. The copyright belongs to the original uploader. Here we provide the
+	video link of each video.
+
+	<div class="gap-10"></div>
+
+	<ul>
+		<li> Pouring
+			<a href="https://www.youtube.com/watch?v=ASaHcb7zOoc">[1]</a>
+			<a href="https://www.youtube.com/shorts/oKkFd1-8PI4">[2]</a>
+		</li>
+		<li>Stirring
+			<a href="https://www.youtube.com/watch?v=3rZ396UFfJ0">[1]</a>
+			<a href="https://www.youtube.com/watch?v=XItmCuj7QHc">[2]</a>
+		</li>
+		<li>Cutting
+			<a href="https://www.youtube.com/watch?v=HF9hLPAZPJ0">[1]</a>
+			<a href="https://www.youtube.com/watch?v=9PcBPnk2ti4">[2]</a>
+		</li>
+		<li>Inserting
+			<a href="https://www.youtube.com/watch?v=jME3M5nw2lI">[1]</a>
+			<a href="https://www.youtube.com/watch?v=D7Yc8YsJM3w">[2]</a>
+		</li>
+		<li>Screw
+			<a href="https://www.youtube.com/watch?v=IbCwOIVg1Fk">[1]</a>
+			<a href="https://www.youtube.com/watch?v=IbCwOIVg1Fk">[2]</a>
+		</li>
+		<li>Writing
+			<a href="https://www.youtube.com/watch?v=eVIxw9XR8eM">[1]</a>
+			<a href="https://www.youtube.com/watch?v=6-zYAiL5Kos">[2]</a>
+		</li>
+		<li>Wiping / Painting
+			<a href="https://www.youtube.com/watch?v=-ZINJrPWsF0">[1]</a>
+			<a href="https://www.youtube.com/watch?v=WjLcBQSj6DA">[2]</a>
+		</li>
+		<li>Hammering
+			<a href="https://www.youtube.com/watch?v=GDE8R51FqJw">[1]</a>
+			<a href="https://www.youtube.com/watch?v=3QBYNh-JVxg">[2]</a>
+		</li>
+		<li>Striking / Hitting
+			<a href="https://www.youtube.com/watch?v=DYbIbRQzRP0">[1]</a>
+			<a href="https://www.youtube.com/watch?v=QauSIioNd7E">[2]</a>
+		</li>
+		<li>Scissors
+			<a href="https://www.youtube.com/watch?v=KhtqXFhupBU">[1]</a>
+			<a href="https://www.youtube.com/watch?v=GT6FCeKmK5M">[2]</a>
+		</li>
+		<li>Rolling Pin
+			<a href="https://www.youtube.com/watch?v=uJuA_feIuIs">[1]</a>
+			<a href="https://www.youtube.com/watch?v=DXVHiY65p4g">[2]</a>
+		</li>
+		<li>Peeling
+			<a href="https://www.youtube.com/watch?v=C2_DWR2jh1I">[1]</a>
+		</li>
+		<li>Breaking Bread / Cookie
+			<a href="https://www.youtube.com/watch?v=WMxufxCRG6Y">[1]</a>
+			<a href="https://www.youtube.com/shorts/sPiGBWSFz34">[2]</a>
+		</li>
+		<li>Pull Handles - Drawer
+			<a href="https://www.youtube.com/shorts/CtBXaXDVLfs">[1]</a>
+			<a href="https://www.youtube.com/watch?v=6IM9UsanrUA">[2]</a>
+		</li>
+		<li>Pull Handles - Knob
+			<a href="https://www.youtube.com/watch?v=B4k72dfhz_8">[1]</a>
+			<a href="https://www.youtube.com/watch?v=W7xFXwCNDCY">[2]</a>
+		</li>
+		<li>Throw & Catch
+			<a href="https://www.youtube.com/watch?v=cFgPUU1NwRc">[1]</a>
+			<a href="https://www.youtube.com/watch?v=XI5WOnNbvhw">[2]</a>
+		</li>
+		<li>Press - Button / Switch
+			<a href="https://www.youtube.com/watch?v=EA-i1D80h4g">[1]</a>
+			<a href="https://www.youtube.com/watch?v=Q3r3K9MUb3o">[2]</a>
+		</li>
+		<li>Stacking Blocks / Plates
+			<a href="https://www.youtube.com/watch?v=8V0n2WcsUeg">[1]</a>
+			<a href="https://www.youtube.com/shorts/VOSrGVdvbz4">[2]</a>
+		</li>
+		<li>Pickup Utensil / Screwdriver
+			<a href="https://www.youtube.com/watch?v=sNE2DhQ1AZ4">[1]</a>
+			<a href="https://www.youtube.com/watch?v=RsKqDX8kRxA">[2]</a>
+		</li>
+		<li>Put down Plates / Book
+			<a href="https://www.youtube.com/watch?v=SfkDubvu1oo">[1]</a>
+			<a href="https://www.youtube.com/watch?v=so-qw0ELUIQ">[2]</a>
+		</li>
+		<li>Handover
+			<a href="https://www.youtube.com/watch?v=so-qw0ELUIQ">[1]</a>
+			<a href="https://www.youtube.com/watch?v=-McCv_Xq2Fo">[2]</a>
+		</li>
+		<li>Hitting with a Bat
+			<a href="https://www.youtube.com/watch?v=hgZ-VHDs6ss">[1]</a>
+			<a href="https://www.youtube.com/watch?v=DnUwBz2BVYM">[2]</a>
+		</li>
+		<li>Pushing / Sliding
+			<a href="https://www.youtube.com/watch?v=G0VXAHQFk3A">[1]</a>
+			<a href="https://www.youtube.com/shorts/u0Xu3nqtGo8">[2]</a>
+		</li>
+	</ul>
+	<div class="gap-20"></div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../res/js/bootstrap.min.js"></script>
+</div>
+
+</html>
